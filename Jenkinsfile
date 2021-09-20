@@ -11,7 +11,7 @@ pipeline {
       }
     }
     
-    stage ('Check-Git-Secrets') {
+   /* stage ('Check-Git-Secrets') {
       steps {
         sh 'rm trufflehog || true'
         sh 'docker run gesellix/trufflehog --json https://github.com/swethabunari/webpipeline.git > trufflehog'
@@ -28,6 +28,10 @@ pipeline {
          sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
         
       }
-    }
+    }*/
+    
+    stage ('Container Scan') {
+       steps {
+         sh 'docker run aquasec/trivy:0.18.3 vulnerables/phpldapadmin-remote-dump'
   }
 }
