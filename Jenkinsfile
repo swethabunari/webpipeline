@@ -35,4 +35,5 @@ pipeline {
          sh 'docker run aquasec/trivy:0.18.3 vulnerables/phpldapadmin-remote-dump'
   }
 }
+  }
 }
