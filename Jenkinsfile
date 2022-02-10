@@ -32,6 +32,7 @@ pipeline {
     
     stage ('Container Scan') {
        steps {
+         sh  'sudo chmod 666 /var/run/docker.sock'
          sh 'docker run aquasec/trivy:0.18.3 vulnerables/phpldapadmin-remote-dump'
              }
          }
